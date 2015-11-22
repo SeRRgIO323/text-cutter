@@ -1,33 +1,37 @@
 <?php
 
+namespace TextCutter;
+
 /**
  * Performs text cutting with specified cut method and type.
  */
 class TextCutter
 {
-    /** TODO */
+    /** Method at which last word can be broken */
     const METHOD_CUT_WORDS = 0;
 
-    /** TODO */
+    /** Methods that leaves the last word unbroken */
     const METHOD_WHOLE_WORDS = 1;
 
-    /** TODO */
+    /** Adds "..." to the end of the text if necessary */
     const DECORATION_ELLIPSIS = 0;
 
-    /** TODO */
+    /** No additional decoration to the text */
     const DECORATION_NONE = 1;
 
 
-    /** TODO */
+    /** Contains chosen cutting method. */
     private $method = self::METHOD_WHOLE_WORDS;
 
-    /** TODO */
+    /** Contains chosen decoration method. */
     private $type = self::DECORATION_ELLIPSIS;
 
 
     /**
-     * @param int $method
-     * @param int $type
+     * Creates an instance of the class and specified parameters as requried.
+     *
+     * @param int $method Method to be used on cutting.
+     * @param int $type   Decoration type to be used on cutting.
      */
     public function __construct(
         $method = self::METHOD_WHOLE_WORDS, $type = self::DECORATION_ELLIPSIS
@@ -37,10 +41,12 @@ class TextCutter
     }
 
     /**
-     * @param string $text
-     * @param int $max_length
+     * Performs cutting of the text.
      *
-     * @return string
+     * @param string $text    Text to be cutted.
+     * @param int $max_length Maximum length of the resulting text.
+     *
+     * @return string  Cutted text.
      */
     public function cut($text = '', $max_length = 200)
     {

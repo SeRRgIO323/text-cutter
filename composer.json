@@ -2,7 +2,7 @@
   "name": "serrg/text-cutter",
   "type": "library",
   "description": "Utility to cut long text according to specified conditions (to make preview text, for example)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "keywords": ["text cutter", "cut text", "text wrapper"],
   "authors": [
