@@ -44,6 +44,9 @@ class TextCutter
      */
     public function cut($text = '', $max_length = 200)
     {
+        if (strlen($text) <= $max_length) {
+            return $text;
+        }
         if ($this->type == self::DECORATION_ELLIPSIS) {
             $max_length -= 3;
         }
