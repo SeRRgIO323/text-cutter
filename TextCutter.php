@@ -50,7 +50,7 @@ class TextCutter
      */
     public function cut($text = '', $max_length = 200)
     {
-        if (strlen($text) <= $max_length) {
+        if (mb_strlen($text) <= $max_length) {
             return $text;
         }
         if ($this->type == self::DECORATION_ELLIPSIS) {
@@ -58,14 +58,14 @@ class TextCutter
         }
         switch ($this->method) {
         case self::METHOD_CUT_WORDS:
-            $text = substr($text, 0, $max_length);
+            $text = mb_substr($text, 0, $max_length);
             break;
         case self::METHOD_WHOLE_WORDS:
-            $text = substr($text, 0, $max_length + 1);
-            if (strlen($text) > $max_length) {
+            $text = mb_substr($text, 0, $max_length + 1);
+            if (mb_strlen($text) > $max_length) {
                 $text = wordwrap($text, $max_length);
-                if ($lastWordPosition = strpos($text, "\n")) {
-                    $text = substr($text, 0, $lastWordPosition);
+                if ($lastWordPosition = mb_strpos($text, "\n")) {
+                    $text = mb_substr($text, 0, $lastWordPosition);
                 }
             }
         }
